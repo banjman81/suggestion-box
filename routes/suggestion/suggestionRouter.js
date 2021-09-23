@@ -105,4 +105,21 @@ router.delete('/delete-suggestion/:id', function(req, res){
     })
 })
 
+router.get('/by-author-suggestion/', function(req, res){
+    suggestionController.getSuggestionsByAuthor(req.query.author, function(err, payload){
+        if(err){
+            res.status(500).json({
+                message: "Error! Failed to find!",
+                error: err.message
+            })
+        }
+        else{
+            res.json({
+                message: "Success!",
+                payload
+            })
+        }
+    })
+})
+
 module.exports = router;

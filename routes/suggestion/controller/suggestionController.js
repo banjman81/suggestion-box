@@ -58,5 +58,15 @@ module.exports = {
                 callback(null, deletedSuggestion)
             }
         })
+    },
+    getSuggestionsByAuthor: function(author, callback){
+        Suggestion.find({author: author }, function(err, payload){
+            if(err){
+                callback(err, null)
+            }
+            else{
+                callback(null, payload)
+            }
+        })
     }
 }
