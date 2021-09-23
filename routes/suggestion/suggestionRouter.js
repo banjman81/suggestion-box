@@ -3,20 +3,21 @@ const suggestionController = require('./controller/suggestionController')
 const router = express.Router()
 
 router.get('/', function(req, res){
-    suggestionController.getAllSuggestion({}, function(err, payload){
-        if(err){
-            res.status(500).json({
-                message: "Error! Something went wrong!",
-                error: err.message
-            })
-        }
-        else{
-            res.json({
-                message: 'Success!',
-                payload
-            })
-        }
-    })
+    // suggestionController.getAllSuggestion({}, function(err, payload){
+    //     if(err){
+    //         res.status(500).json({
+    //             message: "Error! Something went wrong!",
+    //             error: err.message
+    //         })
+    //     }
+    //     else{
+    //         res.json({
+    //             message: 'Success!',
+    //             payload
+    //         })
+    //     }
+    // })
+    res.send('Welcome to Suggestion-Box HW')
 })
 
 router.get('/all-suggestions', function(req, res){
